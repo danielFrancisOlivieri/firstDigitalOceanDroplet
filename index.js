@@ -8,6 +8,14 @@ http.createServer(function (req, res) {
   console.log(q.pathname);
   var pathnameLength = q.pathname.length;
 
+  if( q.pathname === "/") {
+    console.log("Red Crosse Knight")
+    filename = "./index.html"
+  }
+  else if ( q.pathname === "") {
+    console.log("Villain")
+  }
+
   fs.readFile(filename, function(err, data) {
     if (err) {
       res.writeHead(404, {'Content-Type': 'text/html'});
@@ -18,4 +26,4 @@ http.createServer(function (req, res) {
     res.write(data);
     return res.end();
   });
-}).listen(8080);
+}).listen(3000);
